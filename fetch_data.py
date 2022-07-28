@@ -8,8 +8,9 @@ import tarfile
 import zipfile
 import gzip
 from sklearn.datasets import load_files
-from sklearn.externals import joblib
-
+# from sklearn.externals import joblib
+import sklearn.externals as extjoblib 
+# import joblib
 
 TWENTY_URL = ("http://people.csail.mit.edu/jrennie/"
               "20Newsgroups/20news-bydate.tar.gz")
@@ -121,8 +122,8 @@ def check_covertype(datasets_folder):
         X = Xy[:, :-1]
         y = Xy[:, -1].astype(np.int32)
 
-        joblib.dump(X, samples_path)
-        joblib.dump(y, targets_path )
+        extjoblib.dump(X, samples_path)
+        extjoblib.dump(y, targets_path )
     print("=> Success!")
 
 
